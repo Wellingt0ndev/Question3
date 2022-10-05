@@ -9,16 +9,33 @@ public class Main {
         //algarismos. Na fila, aparecem blocos de diversos tamanhos, somente com o algarismo 1.
         //A seguir, vemos destacado um bloco de tamanho três:12345678910111213...
         //Para desvendar esse desafio, responda a pergunta: Qaul é o tamanho do maior desses blocos?
-        int inicio = 1;
-        int fim = 1958;
-        ArrayList<Integer> lista = new ArrayList<>();
+        int firstNumber = 1;
+        int lastNumber = 1958;
+        String convertIntToString = "";
+        int biggerSequence = 0;
+        int currentSequence = 0;
 
-        for (int i = inicio; i <= fim; i++) {
-            lista.add(i);
+        //Vai contar de 1 até 1958 e converter int em String
+        for(int i = firstNumber; i<= lastNumber; i++) {
+            convertIntToString += String.valueOf(i);
         }
-        for (Integer num : lista) {
-            System.out.print(num);
+        //Vai percorrer a String pegando um caracter por vez
+        for(int j=0; j< convertIntToString.length(); j++) {
+            char singleChar = convertIntToString.charAt(j);
 
+            //Compara o caracter, se igual a 1 ele, soma mais 1 na sequência atual
+            if(singleChar == '1') {
+                currentSequence++;
+                continue;
+            }
+            //Compara se a sequência atual é a maior sequência
+            if(currentSequence > biggerSequence) {
+                biggerSequence = currentSequence;
+                currentSequence = 0;
+            }
+            currentSequence = 0;
         }
+        //Exibe a maior sequência
+        System.out.print(biggerSequence);
     }
 }
