@@ -23,7 +23,7 @@ public class Main {
         for(int j=0; j< convertIntToString.length(); j++) {
             char singleChar = convertIntToString.charAt(j);
 
-            //Compara o caracter, se igual a 1 ele, soma mais 1 na sequência atual
+            //Compara o caracter, se igual a 1, ele soma mais 1 na sequência atual
             if(singleChar == '1') {
                 currentSequence++;
                 continue;
